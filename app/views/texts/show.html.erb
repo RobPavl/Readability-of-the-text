@@ -1,0 +1,12 @@
+<p>
+  <strong>Name:</strong>
+  <%= @text.name %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @text.body %>
+</p>
+
+<%= link_to 'Edit', edit_text_path(@text) %> |
+<%= link_to 'Back', texts_path %>
