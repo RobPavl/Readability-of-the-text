@@ -21,6 +21,11 @@
     <%= form.text_area :body %>
   </div>
 
+  <div class="field">
+    <%= form.label :language %>
+    <%= form.select :language, [:english, :ukrainian, :russian]%>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
