@@ -14,7 +14,7 @@ class TextsController < ApplicationController
 
   # GET /texts/new
   def new
-    @text = Text.new
+    @text = current_user.texts.new
   end
 
   # GET /texts/1/edit
@@ -24,8 +24,9 @@ class TextsController < ApplicationController
   # POST /texts
   # POST /texts.json
   def create
-    @text = Text.new(text_params)
-
+    @text = current_user.texts.new(text_params)
+    calculate_index(@text)
+ 
     respond_to do |format|
       if @text.save
         format.html { redirect_to @text, notice: 'Text was successfully created.' }
@@ -61,6 +62,12 @@ class TextsController < ApplicationController
     end
   end
 
+  def calculate_index(text)
+    text.count_words_in_sentences
+    text.count_syllables_in_text
+    text.calculate_fre
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_text
@@ -69,6 +76,6 @@ class TextsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def text_params
-      params.require(:text).permit(:name, :body)
+      params.require(:text).permit(:name, :body, :language)
     end
 end
