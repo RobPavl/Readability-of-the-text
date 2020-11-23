@@ -41,6 +41,7 @@ class TextsController < ApplicationController
   # PATCH/PUT /texts/1
   # PATCH/PUT /texts/1.json
   def update
+    calculate_index(@text)
     respond_to do |format|
       if @text.update(text_params)
         format.html { redirect_to @text, notice: 'Text was successfully updated.' }
