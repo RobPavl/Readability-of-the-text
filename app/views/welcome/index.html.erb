@@ -1,5 +1,7 @@
 <h1>Hello, my Friend!</h1>
 
-<%= link_to 'To Texts', texts_path %>
+<%= button_to 'To Texts', texts_path %>
+
+<%= button_to 'New Text', new_text_path %>
 
 <%= button_to "Log Out", destroy_user_session_path, method: :delete %>
