@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2020_11_20_185450) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
-
     t.decimal "fre", precision: 6, scale: 3
     t.decimal "asl", precision: 5, scale: 2
     t.decimal "asw", precision: 5, scale: 2
